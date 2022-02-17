@@ -64,25 +64,11 @@ class PlaceOrder extends \Magento\QuoteGraphQl\Model\Resolver\PlaceOrder
      * @param OrderRepositoryInterface $orderRepository
      * @param CheckCartCheckoutAllowance $checkCartCheckoutAllowance
      */
-//    public function __construct(
-//        GetCartForUser $getCartForUser,
-//        CartManagementInterface $cartManagement,
-//        OrderRepositoryInterface $orderRepository,
-//        CheckCartCheckoutAllowance $checkCartCheckoutAllowance
-//    ) {
-//        $this->getCartForUser = $getCartForUser;
-//        $this->cartManagement = $cartManagement;
-//        $this->orderRepository = $orderRepository;
-//        $this->checkCartCheckoutAllowance = $checkCartCheckoutAllowance;
-//        parent::__construct($getCartForUser, $cartManagement, $orderRepository, $checkCartCheckoutAllowance);
-//    }
-    // Fix on 2.4.3 when setup:di:compile
     public function __construct(
         GetCartForUser $getCartForUser,
         CartManagementInterface $cartManagement,
         OrderRepositoryInterface $orderRepository,
-        CheckCartCheckoutAllowance $checkCartCheckoutAllowance,
-        PaymentMethodManagementInterface $paymentMethodManagement
+        CheckCartCheckoutAllowance $checkCartCheckoutAllowance
     ) {
         $this->getCartForUser = $getCartForUser;
         $this->cartManagement = $cartManagement;
@@ -92,10 +78,10 @@ class PlaceOrder extends \Magento\QuoteGraphQl\Model\Resolver\PlaceOrder
             $getCartForUser,
             $cartManagement,
             $orderRepository,
-            $checkCartCheckoutAllowance,
-            $paymentMethodManagement
+            $checkCartCheckoutAllowance
         );
     }
+
 
     /**
      * @inheritdoc
